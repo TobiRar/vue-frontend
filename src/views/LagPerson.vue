@@ -1,4 +1,8 @@
 <template>
-    <p>Skal være en header component her</p>
-    <p>Skal være en komponent for å lage en person (input fields of sånt)</p>
+  <back-header></back-header>
+  <person-form></person-form>
 </template>
+<script setup>
+import BackHeader from "@/components/BackHeader.vue";
+import PersonForm from "@/components/PersonForm.vue";
+</script>
