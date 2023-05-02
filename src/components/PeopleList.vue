@@ -12,7 +12,7 @@
                 <th>Rediger</th>
                 <th>Slett</th>
             </tr>
-            <tr>
+            <tr > <!-- v-if her-->
 
                 <td>hei</td>
                 <td>hei</td>

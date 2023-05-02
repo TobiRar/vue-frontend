@@ -1,4 +1,4 @@
-import Adress from "../Models/Adress"
+import Adress from "./Adress"
 export class Person {
     constructor(age, birthDay, city, country, dadFirstName, dadId, dadLastName, dadName, firstName, headRadius, id, lastName, momFirstName, momId, momLastName, momName, number, postNumber, streetName) {
         this.adress = new Adress()
