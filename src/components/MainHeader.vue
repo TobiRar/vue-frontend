@@ -1,20 +1,46 @@
 <script setup>
-    // import {defineProps} from "vue"
-
+// import { MdPersonsearch } from "oh-vue-icons/icons";
+//     import {defineProps, watch} from "vue";
+    // import {watch, ref} from "vue"
+    // import { FaSearch } from "oh-vue-icons/icons";
+    // import OhVueIcon from "oh-vue-icons";
+    // const searchPerson = ref("")
+    // watch(searchPerson, () => {
+    //     if(searchPerson == "Jimmy Olsen")
+    //     console.log("Halvor")
+    // })
+    // "v-icon": OhVueIcon
 </script>
 <template>
     <div class="header-container">
         <button id="addPersonButton">Legg til person</button>
-        <div>
-            <input type="text" placeholder="Søk etter person...">
-            <button class="submitSearch"></button>
+        <div id="searchPerson">
+            <font-awesome-icon icon="fa-solid fa-user" />
+            <input v-model.trim="searchPerson" type="text" placeholder="Søk etter person...">
+        <font-awesome-icon icon="fa-solid fa-user" />
+        <button id="submitSearch"> <font-awesome-icon icon="fa-solid fa-magnifying-glass" /> </button>
         </div>
+        <font-awesome-icon icon="fa-solid fa-user" />
+        <v-icon name="MdPersonsearch" />
+
+            
     </div>
 </template>
-<style>
+<style scoped>
+.header-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+    margin-top: 30px;
+}
+
 .searchPerson input:focus {
     outline: none;
 }
+
 #addPersonButton {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
@@ -26,4 +52,32 @@
     border-radius: 12px;
     cursor: pointer;
 }
+
+#searchPerson {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+}
+
+#submitSearch {
+    background: rgb(90, 234, 146);
+    color: rgb(38, 66, 58);
+    border: 0;
+    border-radius: 12px;
+    padding: 5px 10px 5px 10px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+#searchPerson input {
+    border: 0;
+    border-radius: 12px;
+    padding: 5px 20px 5px 15px;
+    width: 100%;
+    outline: none;
+    height: 35px;
+}
+
 </style>
