@@ -2,26 +2,30 @@
 // import { MdPersonsearch } from "oh-vue-icons/icons";
 //     import {defineProps, watch} from "vue";
     import {watch, ref} from "vue"
+    import { useRouter } from "vue-router";
     // import { FaSearch } from "oh-vue-icons/icons";
     // import OhVueIcon from "oh-vue-icons";
     const searchPerson = ref("")
+    const check = ref(false)
+    const router = useRouter()
+
     watch(searchPerson, () => {
         console.log(searchPerson.value)
-        if(searchPerson.value == "Jimmy Olsen")
-        console.log("Halvor")
+        if(searchPerson.value == "Jimmy Olsen") {
+            check.value = true
+            console.log(check.value)
+            router.push("/EasterEgg")
+        }
+
     })
 </script>
 <template>
     <div class="header-container">
         <button id="addPersonButton">Legg til person</button>
         <div id="searchPerson">
-            <font-awesome-icon icon="fa-solid fa-user" />
             <input v-model.trim="searchPerson" type="text" placeholder="Søk etter person...">
-        <font-awesome-icon icon="fa-solid fa-user" />
-        <button id="submitSearch"> <font-awesome-icon icon="fa-solid fa-magnifying-glass" /> </button>
+        <button id="submitSearch"> </button>
         </div>
-        <font-awesome-icon icon="fa-solid fa-user" />
-        <v-icon name="MdPersonsearch" />
 
             
     </div>
