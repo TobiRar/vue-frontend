@@ -1,15 +1,15 @@
 <script setup>
 // import { MdPersonsearch } from "oh-vue-icons/icons";
 //     import {defineProps, watch} from "vue";
-    // import {watch, ref} from "vue"
+    import {watch, ref} from "vue"
     // import { FaSearch } from "oh-vue-icons/icons";
     // import OhVueIcon from "oh-vue-icons";
-    // const searchPerson = ref("")
-    // watch(searchPerson, () => {
-    //     if(searchPerson == "Jimmy Olsen")
-    //     console.log("Halvor")
-    // })
-    // "v-icon": OhVueIcon
+    const searchPerson = ref("")
+    watch(searchPerson, () => {
+        console.log(searchPerson.value)
+        if(searchPerson.value == "Jimmy Olsen")
+        console.log("Halvor")
+    })
 </script>
 <template>
     <div class="header-container">
