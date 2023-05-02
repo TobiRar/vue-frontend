@@ -1,4 +1,9 @@
 <script setup>
+import {getPeople} from "../RestController/Controller.js"
+import {ref} from "vue"
+const arr = ref(getPeople())
+
+console.log(arr.value)
 </script>
 
 <template>
@@ -12,7 +17,7 @@
                 <th>Rediger</th>
                 <th>Slett</th>
             </tr>
-            <tr > <!-- v-if her-->
+            <tr v> <!-- v-if her-->
 
                 <td>hei</td>
                 <td>hei</td>

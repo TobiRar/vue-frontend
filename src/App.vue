@@ -1,9 +1,11 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import { RouterLink } from 'vue-router'
+
 </script>
 
 <template>
+  <button @click="getPeople">trykk</button>
   <nav>
     <router-link to="/">Front page</router-link >
     <router-link to="/LagPerson">LagPerson</router-link >
