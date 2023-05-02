@@ -24,7 +24,7 @@
     <div class="form-control">
       <label for="mom">Mor</label>
       <input id="mom" name="mom" type="text" placeholder="Søk etter mor..." v-model="mom"/>
-      <button>Søk</button>
+      <button type="button">Søk</button>
     </div>
     <div class="form-control">
       <label for="last-name">Etternavn</label>
@@ -49,7 +49,7 @@
     <div class="form-control">
       <label for="dad">Far</label>
       <input id="dad" name="dad" type="text" placeholder="Søk etter far..." v-model="dad"/>
-      <button>Søk</button>
+      <button type="button">Søk</button>
     </div>
     <div>
       <button>Lagre</button>
@@ -58,25 +58,21 @@
 </template>
 
 <script setup>
+  import { ref } from 'vue' ;
 
-// import { ref } from 'vue' ;
+  const firstName = ref('');
+  const age = ref(null);
+  const streetName = ref('');
+  const postNumber = ref(null);
+  const country = ref('');
+  const mom = ref('');
+  const lastName = ref('');
+  const birthDate = ref(null);
+  const streetNumber = ref(null);
+  const city = ref('');
+  const headRadius = ref(null);
+  const dad = ref('');
 
-// data() {
-//   return {
-//     firstName: '',
-//     age: null,
-//     streetName: '',
-//     postNumber: null,
-//     country: '',
-//     mom: '',
-//     lastName: '',
-//     birthDate: null,
-//     streetNumber: null,
-//     city: '',
-//     headRadius: null,
-//     dad: ''
-//   };
-// },
 
  function submitForm() {
     console.log('Fornavn: ' + this.firstName);
