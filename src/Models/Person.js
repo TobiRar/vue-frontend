@@ -13,11 +13,6 @@ export default class Person {
   dadLastName;
   momFirstName;
   momLastName;
-  streetName;
-  number;
-  city;
-  postNumber;
-  country;
 
   Adress;
 
