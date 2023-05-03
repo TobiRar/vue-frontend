@@ -4,6 +4,4 @@ async function getPeople() {
   return jsonData;
 }
 
-let list = await getPeople();
-console.log(list, " Test");
 export { getPeople };
