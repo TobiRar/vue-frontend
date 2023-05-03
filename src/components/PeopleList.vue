@@ -1,12 +1,34 @@
 <script setup>
 import {getPeople} from "../RestController/Controller.js"
-import {ref} from "vue"
-const arr = ref(getPeople())
+import {ref, onMounted} from "vue"
+import {useRouter} from "vue-router"
 
-console.log(arr.value)
+const router = useRouter()
+
+const listOfPepole = ref(null)
+
+function goToEditpage() {
+    router.push("/Edit-Person")
+}
+
+onMounted(async () =>{
+    if(!listOfPepole.value){
+        listOfPepole.value = await getPeople()
+    }
+})
+
+/* onMounted(() => {
+    getPeople().then(data=>{
+        array.value = data
+    })
+}) */
+
+
+
 </script>
 
 <template>
+   <button @click="getPeople1">Trykk</button>
         <table class="table">
             <tr>
                 <th>Fornavn</th>
@@ -17,18 +39,17 @@ console.log(arr.value)
                 <th>Rediger</th>
                 <th>Slett</th>
             </tr>
-            <tr v> <!-- v-if her-->
-
-                <td>hei</td>
-                <td>hei</td>
-                <td>hei</td>
+            <tr v-for="person in listOfPepole" :key="person.id"> <!-- v-if her-->
+                <td>{{person.firstName}}</td>
+                <td>{{  person.lastName}}</td>
+                <td>{{person.streetName}}</td>
                 <td>hei</td>
                 <td>hei</td>
                 <td>
-                    <button>Rediger</button>
+                    <button @click="goToEditpage">Rediger</button>
                 </td>
                 <td>
-                    <button>Slett</button>
+                    <button >Slett</button>
                 </td>
             </tr>
 

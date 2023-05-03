@@ -18,16 +18,18 @@
         }
 
     })
+
+    function goToAddPersonView() {
+        router.push("/LagPerson")
+    }
 </script>
 <template>
     <div class="header-container">
-        <button id="addPersonButton">Legg til person</button>
+        <button @click="goToAddPersonView" id="addPersonButton">Legg til person</button>
         <div id="searchPerson">
             <input v-model.trim="searchPerson" type="text" placeholder="Søk etter person...">
-        <button id="submitSearch"> </button>
+        <button id="submitSearch">Submit</button>
         </div>
-
-            
     </div>
 </template>
 <style scoped>
