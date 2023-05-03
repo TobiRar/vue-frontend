@@ -1,10 +1,13 @@
+async function getPeople() {
+  const response = await fetch("https://localhost:7147/all");
+  const jsonData = await response.json();
+  return jsonData;
 
-function getPeople() {
-  fetch('https://localhost:7147/all')
-  
-  .then(response => response.json())
-  .then((json) => {
-    return json.data
-  })
+  /*   fetch("https://localhost:7147/all")
+    .then((res) => res.json())
+    .then((res) => console.log(res)); */
 }
-export {getPeople}
+
+let list = await getPeople();
+console.log(list, " Test");
+export { getPeople };
