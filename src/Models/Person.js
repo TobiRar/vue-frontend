@@ -1,3 +1,5 @@
+import Adress from "./Adress.js";
+
 export default class Person {
   id;
   firstName;
@@ -16,7 +18,31 @@ export default class Person {
   city;
   postNumber;
   country;
-  constructor(person) {}
+
+  Adress;
+
+  constructor(person) {
+    this.id = parseInt(person.id);
+    this.firstName = person.firstName;
+    this.lastName = person.lastName;
+    this.age = parseInt(person.age);
+    this.headRadius = parseFloat(person.headRadius);
+    this.birthDay = Date.parse(person.birthDay);
+    this.momId = parseInt(this.momId);
+    this.dadId = parseInt(this.dadId);
+    this.dadFirstName = person.dadFirstName;
+    this.dadLastName = person.dadLastName;
+    this.momFirstName = person.momFirstName;
+    this.momLastName = person.momLastName;
+
+    this.Adress = new Adress(
+      person.streetName,
+      person.number,
+      person.city,
+      person.postNumber,
+      person.country
+    );
+  }
 }
 
 /* export default class Person {
