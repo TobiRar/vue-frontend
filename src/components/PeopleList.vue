@@ -1,6 +1,6 @@
 <script setup>
-import {getPeople} from "../RestController/Controller.js"
-import {ref, onMounted} from "vue"
+import {getPeople, deleteById} from "../RestController/Controller.js"
+import {ref, onMounted, watch} from "vue"
 import {useRouter} from "vue-router"
 
 const router = useRouter()
@@ -16,6 +16,9 @@ onMounted(async () =>{
         listOfPepole.value = await getPeople()
     }
 })
+watch(listOfPepole.value, (() => {
+    console.log("hei")
+}))
 
 /* onMounted(() => {
     getPeople().then(data=>{
@@ -28,7 +31,6 @@ onMounted(async () =>{
 </script>
 
 <template>
-   <button @click="getPeople1">Trykk</button>
         <table class="table">
             <tr>
                 <th>Fornavn</th>
@@ -41,7 +43,7 @@ onMounted(async () =>{
             </tr>
             <tr v-for="person in listOfPepole" :key="person.id"> <!-- v-if her-->
                 <td>{{person.firstName}}</td>
-                <td>{{  person.lastName}}</td>
+                <td>{{person.lastName}}</td>
                 <td>{{person.streetName}}</td>
                 <td>{{person.number}}</td>
                 <td>{{person.city}}</td>
@@ -49,7 +51,7 @@ onMounted(async () =>{
                     <button @click="goToEditpage">Rediger</button>
                 </td>
                 <td>
-                    <button >Slett</button>
+                    <button @click="deleteById(person.id)" >Slett</button>
                 </td>
             </tr>
 

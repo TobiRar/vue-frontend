@@ -5,3 +5,11 @@ async function getPeople() {
 }
 
 export { getPeople };
+
+async function deleteById(id) {
+  await fetch("https://localhost:7147/"+id , {
+    method: 'DELETE'
+  })
+  .then(location.reload());
+}
+export {deleteById}
