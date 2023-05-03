@@ -43,8 +43,8 @@ onMounted(async () =>{
                 <td>{{person.firstName}}</td>
                 <td>{{  person.lastName}}</td>
                 <td>{{person.streetName}}</td>
-                <td>hei</td>
-                <td>hei</td>
+                <td>{{person.number}}</td>
+                <td>{{person.city}}</td>
                 <td>
                     <button @click="goToEditpage">Rediger</button>
                 </td>
