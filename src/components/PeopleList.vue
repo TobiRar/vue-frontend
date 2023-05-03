@@ -1,6 +1,7 @@
 <script setup>
 import { getPeople } from "../RestController/Controller.js"
 import { ref, onMounted } from "vue"
+import { usePerson } from '../Store/personStore.js'
 
 const listOfPepole = ref(null)
 
@@ -9,6 +10,13 @@ onMounted(async () => {
         listOfPepole.value = await getPeople()
     }
 })
+
+
+function selectedPerson(person) {
+    usePerson(person)
+}
+
+
 </script>
 
 <template>
@@ -29,7 +37,7 @@ onMounted(async () => {
             <td>hei</td>
             <td>hei</td>
             <td>
-                <button @click="$router.push('/edit-person')">Rediger</button>
+                <button @click="() => { $router.push('/edit-person'); selectedPerson(person) }">Rediger</button>
             </td>
             <td>
                 <button>Slett</button>
