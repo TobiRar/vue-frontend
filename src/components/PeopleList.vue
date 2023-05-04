@@ -19,7 +19,6 @@ function selectedPerson(person) {
     console.log(pers.Person.id)
 }
 
-
 </script>
 
 <template>
@@ -37,8 +36,8 @@ function selectedPerson(person) {
             <td>{{ person.firstName }}</td>
             <td>{{ person.lastName }}</td>
             <td>{{ person.streetName }}</td>
-            <td>hei</td>
-            <td>hei</td>
+            <td>{{person.number}}</td>
+            <td>{{person.city}}</td>
             <td>
                 <button @click="() => { $router.push('/edit-person'); selectedPerson(person) }">Rediger</button>
             </td>

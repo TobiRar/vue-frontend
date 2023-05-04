@@ -7,9 +7,19 @@ async function getPeople() {
 export { getPeople };
 
 async function deleteById(id) {
-  await fetch("https://localhost:7147/"+id , {
+ const response = await fetch("https://localhost:7147/"+id , {
     method: 'DELETE'
   })
+  console.log(response)
   .then(location.reload());
 }
 export {deleteById}
+
+async function searchPerson(firstname, lastname) {
+  // firstname.value = "Halvor"
+  // lastname.value = "Bakke"
+  await fetch("https://localhost:7147/getparents?firstName=${firstName}&lastName=${lastName}" , {
+    method: 'GET'
+  })
+}
+export {searchPerson}

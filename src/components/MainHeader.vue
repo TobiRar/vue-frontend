@@ -1,15 +1,17 @@
 <script setup>
 // import { MdPersonsearch } from "oh-vue-icons/icons";
 //     import {defineProps, watch} from "vue";
+import {searchPerson} from "../RestController/Controller.js"
     import {watch, ref} from "vue"
     import { useRouter } from "vue-router";
     // import { FaSearch } from "oh-vue-icons/icons";
     // import OhVueIcon from "oh-vue-icons";
-    const searchPerson = ref("")
+    const search = ref("")
+    const searchArr = ref([])
     const check = ref(false)
     const router = useRouter()
 
-    watch(searchPerson, () => {
+    watch(search, () => {
         console.log(searchPerson.value)
         if(searchPerson.value == "Jimmy Olsen") {
             check.value = true
@@ -22,13 +24,17 @@
     function goToAddPersonView() {
         router.push("/LagPerson")
     }
+
+    // function splitSearch() {
+
+    // }
 </script>
 <template>
     <div class="header-container">
         <button @click="goToAddPersonView" id="addPersonButton">Legg til person</button>
         <div id="searchPerson">
-            <input v-model.trim="searchPerson" type="text" placeholder="Søk etter person...">
-        <button id="submitSearch">Submit</button>
+            <input v-model.trim="search" type="text" placeholder="Søk etter person...">
+        <button @click="searchPerson('Halvor', 'Bakke')" id="submitSearch">Submit</button>
         </div>
     </div>
 </template>
