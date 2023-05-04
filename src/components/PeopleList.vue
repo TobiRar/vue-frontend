@@ -2,12 +2,19 @@
 import { ref, onMounted } from "vue"
 import { selectedPerson } from "./composable/selectedPerson.js";
 import { usePeopleList } from "../Store/listOfPeopleStore.js";
+import { useSwitch } from "../Store/switch";
 
+const switchFunction = useSwitch()
+console.log(switchFunction.value)
 const listOfPepole = usePeopleList()
- 
+
+
+
+var change = ref('')
 </script>
 
 <template>
+    <slot><h1>Hello</h1></slot>
     <table class="table">
         <tr>
             <th>Fornavn</th>
@@ -15,8 +22,8 @@ const listOfPepole = usePeopleList()
             <th>Gatenavn</th>
             <th>Nummer</th>
             <th>By</th>
-            <th>Rediger</th>
-            <th>Slett</th>
+            <th><slot name="selectBtn">Velg</slot></th>
+            <slot name="deleteBtnHead"></slot>
         </tr>
         <tr v-for="person in listOfPepole" :key="person.id"> <!-- v-if her-->
             <td>{{ person.firstName }}</td>
@@ -25,10 +32,10 @@ const listOfPepole = usePeopleList()
             <td>{{person.number}}</td>
             <td>{{person.city}}</td>
             <td>
-                <button @click="() => { $router.push('/edit-person'); selectedPerson(person) }">Rediger</button>
+                <slot name="selectX"></slot>
             </td>
             <td>
-                <button @click="deleteById(person.id)">Slett</button>
+                <slot name="deleteBtn"></slot>
             </td>
         </tr>
 

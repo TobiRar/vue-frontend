@@ -5,16 +5,14 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <button @click="getPeople">trykk</button>
   <nav>
     <router-link to="/">Front page</router-link >
-    <router-link to="/LagPerson">LagPerson</router-link >
   </nav>
   <RouterView />
 
 </template>
 
-<style scoped>
+<style>
 * {
   box-sizing: border-box;
 }

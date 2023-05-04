@@ -2,7 +2,6 @@
 import PeopleList from '../components/PeopleList.vue';
 import Header from '../components/MainHeader.vue';
 import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
-import { selectedPerson } from '../components/composable/selectedPerson';
 
 // import {computed} from "vue"
 useFillPeopleList()
@@ -12,9 +11,6 @@ useFillPeopleList()
 <template>
     <Header />
     <PeopleList>
-        <template v-slot:selectBtn>Velgs</template>
-        <template v-slot:selectX><button 
-            @click="() => { $router.push('/edit-person'); selectedPerson(person) }">Velg</button></template>
         <template v-slot:deleteBtnHead>Delete</template>
         <template v-slot:deleteBtn><button @click="deleteById(person.id)">Slett</button></template>
     </PeopleList>

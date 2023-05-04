@@ -7,7 +7,6 @@ import {searchPerson} from "../RestController/Controller.js"
     // import { FaSearch } from "oh-vue-icons/icons";
     // import OhVueIcon from "oh-vue-icons";
     const search = ref("")
-    const searchArr = ref([])
     const check = ref(false)
     const router = useRouter()
 
@@ -34,7 +33,7 @@ import {searchPerson} from "../RestController/Controller.js"
         <button @click="goToAddPersonView" id="addPersonButton">Legg til person</button>
         <div id="searchPerson">
             <input v-model.trim="search" type="text" placeholder="Søk etter person...">
-        <button @click="searchPerson('lol')" id="submitSearch">Submit</button>
+        <button @click="searchPerson(search)" id="submitSearch">Submit</button>
         </div>
     </div>
 </template>
