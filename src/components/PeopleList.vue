@@ -1,8 +1,7 @@
 <script setup>
-import {getPeople, deleteById} from "../RestController/Controller.js"
-import {ref, onMounted} from "vue"
-import { usePerson } from '../Store/personStore.js'
-import PersonClass from "../Models/Person.js";
+import { getPeople, deleteById } from "../RestController/Controller.js"
+import { ref, onMounted } from "vue"
+import { selectedPerson } from "./composable/selectedPerson.js";
 
 const listOfPepole = ref(null)
 
@@ -11,13 +10,6 @@ onMounted(async () => {
         listOfPepole.value = await getPeople()
     }
 })
-
-function selectedPerson(person) {
-    const pers = usePerson()
-    pers.Person = new PersonClass(person)
-    console.log(pers.Person)
-    console.log(pers.Person.id)
-}
 
 
 </script>
