@@ -1,17 +1,10 @@
 <script setup>
-import { getPeople, deleteById } from "../RestController/Controller.js"
 import { ref, onMounted } from "vue"
 import { selectedPerson } from "./composable/selectedPerson.js";
+import { usePeopleList } from "../Store/listOfPeopleStore.js";
 
-const listOfPepole = ref(null)
-
-onMounted(async () => {
-    if (!listOfPepole.value) {
-        listOfPepole.value = await getPeople()
-    }
-})
-
-
+const listOfPepole = usePeopleList()
+ 
 </script>
 
 <template>
