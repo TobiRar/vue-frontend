@@ -6,6 +6,8 @@ const switchFunction = useSwitch()
 console.log(switchFunction.value)
 const listOfPepole = usePeopleList()
 
+const props = defineProps(['parentFunction', 'goTo'])
+
 </script>
 
 <template>
@@ -16,18 +18,25 @@ const listOfPepole = usePeopleList()
             <th>Gatenavn</th>
             <th>Nummer</th>
             <th>By</th>
-            <slot name="selectBtn"><th>Velg</th></slot>
-            <slot name="deleteBtnHead"><th></th></slot>
+            <slot name="selectBtn">
+                <th>Velg</th>
+            </slot>
+            <slot name="deleteBtnHead">
+                <th></th>
+            </slot>
 
         </tr>
         <tr v-for="person in listOfPepole" :key="person.id"> <!-- v-if her-->
             <td>{{ person.firstName }}</td>
             <td>{{ person.lastName }}</td>
             <td>{{ person.streetName }}</td>
-            <td>{{person.number}}</td>
-            <td>{{person.city}}</td>
+            <td>{{ person.number }}</td>
+            <td>{{ person.city }}</td>
             <td>
-                <slot name="selectX"></slot>
+                <button @click="() => { $router.push(goTo); parentFunction(person) }">
+                    <slot name="selectX"></slot>
+                </button>
+                <!-- <slot name="selectX" @click="selectedPerson.value = person"></slot> -->
             </td>
             <td>
                 <slot name="deleteBtn"></slot>

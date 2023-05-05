@@ -7,16 +7,17 @@ import { selectedPerson } from '../components/composable/selectedPerson';
 // import {computed} from "vue"
 useFillPeopleList()
 
-
 </script>
 <template>
     <Header />
-    <PeopleList>
+    <PeopleList :goTo="'/edit-person'" :parentFunction="selectedPerson">
         <template v-slot:selectBtn></template>
         deleteBtnHead
-        <template v-slot:selectX><button 
-            @click="() => { $router.push('/edit-person'); selectedPerson(person) }">Velg</button></template>
-        <template v-slot:deleteBtnHead><th>Slett</th></template>
+        <template v-slot:selectX>Velg
+        </template>
+        <template v-slot:deleteBtnHead>
+            <th>Slett</th>
+        </template>
         <template v-slot:deleteBtn><button @click="deleteById(person.id)">Slett</button></template>
     </PeopleList>
 </template>
