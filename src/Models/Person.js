@@ -1,7 +1,7 @@
 import Adress from "./Adress.js";
 
 export default class Person {
-  id;
+  /* id;
   firstName;
   lastName;
   age;
@@ -14,28 +14,28 @@ export default class Person {
   momFirstName;
   momLastName;
 
-  Adress;
+  Adress; */
 
   constructor(person) {
-    this.id = parseInt(person.id);
-    this.firstName = person.firstName;
-    this.lastName = person.lastName;
-    this.age = parseInt(person.age);
-    this.headRadius = parseFloat(person.headRadius);
-    this.birthDay = Date.parse(person.birthDay);
-    this.momId = parseInt(this.momId);
-    this.dadId = parseInt(this.dadId);
-    this.dadFirstName = person.dadFirstName;
-    this.dadLastName = person.dadLastName;
-    this.momFirstName = person.momFirstName;
-    this.momLastName = person.momLastName;
+    this.id = parseInt(person.id) ?? NaN;
+    this.firstName = person.firstName ?? null;
+    this.lastName = person.lastName ?? null;
+    this.age = parseInt(person.age) ?? NaN;
+    this.headRadius = parseFloat(person.headRadius) ?? NaN;
+    this.birthDay = Date.parse(person.birthDay) ?? NaN;
+    this.momId = parseInt(this.momId) ?? NaN;
+    this.dadId = parseInt(this.dadId) ?? NaN;
+    this.dadFirstName = person.dadFirstName ?? null;
+    this.dadLastName = person.dadLastName ?? null;
+    this.momFirstName = person.momFirstName ?? null;
+    this.momLastName = person.momLastName ?? null;
 
     this.Adress = new Adress(
-      person.streetName,
-      person.number,
-      person.city,
-      person.postNumber,
-      person.country
+      person.streetName ?? null,
+      person.number ?? NaN,
+      person.city ?? null,
+      person.postNumber ?? NaN,
+      person.country ?? null
     );
   }
 }
