@@ -1,28 +1,22 @@
 <template>
   <header>
-    <button>Tilbake</button>
+    <div>
+      <standard-button @click="router.back()">Tilbake</standard-button>
+    </div>
   </header>
 </template>
 
 <script setup>
-// export default {
-//   name: "BackHeader"
-// }
+import {useRouter} from "vue-router";
+import StandardButton from "@/components/UI/StandardButton.vue";
+
+const router = useRouter()
 </script>
 
 <style scoped>
-  /*header {*/
-  /*  background-color: rgb(38, 66, 58);*/
-  /*  justify-content: left;*/
-  /*}*/
-  /*button {*/
-  /*  background-color: rgb(90, 234, 146);*/
-  /*  color: rgb(38, 66, 58);*/
-  /*  font-weight: bolder;*/
-  /*  border: 1px solid rgb(90, 234, 146);*/
-  /*  border-radius: 12px;*/
-  /*  padding: 4px 12px;*/
-  /*  margin: 20px;*/
-  /*  cursor: pointer;*/
-  /*}*/
+  header {
+    background-color: rgb(38, 66, 58);
+    justify-content: left;
+  }
+
 </style>

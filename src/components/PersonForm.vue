@@ -1,67 +1,65 @@
 <template>
-  <h2 id="lag_person_overskrift">Endre person</h2>
-  <form @submit.prevent="submitForm">
+  <section class="form">
+    <h2 id="lag_person_overskrift">Endre person</h2>
     <div class="form-control">
-      <label for="first-name">Fornavn</label>
-      <input id="first-name" name="first-name" type="text" v-model.trim="firstName"/>
+      <p>Fornavn</p>
+      <input type="text" v-model.trim="firstName"/>
     </div>
     <div class="form-control">
-      <label for="age">Alder</label>
-      <input id="age" name="age" type="number" v-model.trim="age"/>
+      <p>Alder</p>
+      <input id="age" name="age" type="number" v-model="age"/>
     </div>
     <div class="form-control">
-      <label for="street-name">Gatenavn</label>
-      <input id="street-name" name="street-name" type="text" v-model.trim="streetName"/>
+      <p>Gatenavn</p>
+      <input type="text" v-model.trim="streetName"/>
     </div>
     <div class="form-control">
-      <label for="post-number">Postnummer</label>
-      <input id="post-number" name="post-number" type="number" v-model.trim="postNumber"/>
+      <p>Postnummer</p>
+      <input type="number" v-model="postNumber"/>
     </div>
     <div class="form-control">
-      <label for="country">Land</label>
-      <input id="country" name="country" type="text" v-model.trim="country"/>
+      <p>Land</p>
+      <input type="text" v-model.trim="country"/>
     </div>
     <div class="form-control">
-      <label for="mom">Mor</label>
-      <input id="mom" name="mom" type="text" placeholder="Søk etter mor..." v-model="mom"/>
-      <button type="button">Søk</button>
+      <p>Mor</p>
+      <input type="text" placeholder="Søk etter mor..." v-model="mom"/>
+      <button>Søk</button>
     </div>
     <div class="form-control">
-      <label for="last-name">Etternavn</label>
-      <input id="last-name" name="last-name" type="text" v-model.trim="lastName"/>
+      <p>Etternavn</p>
+      <input type="text" v-model.trim="lastName"/>
     </div>
     <div class="form-control">
-      <label for="birth-date">Fødselsdato</label>
-      <input id="birth-date" name="birth-date" type="date" v-model="birthDate"/>
+      <p>Fødselsdato</p>
+      <input type="date" v-model="birthDate"/>
     </div>
     <div class="form-control">
-      <label for="street-number">Gatenummer</label>
-      <input id="street-number" name="street-nunmber" type="number" v-model.trim="streetNumber"/>
+      <p>Gatenummer</p>
+      <input type="number" v-model="streetNumber"/>
     </div>
     <div class="form-control">
-      <label for="city">By</label>
-      <input id="city" name="city" type="text" v-model.trim="city"/>
+      <p>By</p>
+      <input type="text" v-model.trim="city"/>
     </div>
     <div class="form-control">
-      <label for="head-radius">Hoderadius</label>
-      <input id="head-radius" name="head-radius" type="number" v-model.trim="headRadius"/>
+      <p>Hoderadius</p>
+      <input type="number" v-model="headRadius"/>
     </div>
     <div class="form-control">
-      <label for="dad">Far</label>
-      <input id="dad" name="dad" type="text" placeholder="Søk etter far..." v-model="dad"/>
-      <button @click="goToAddPersonView"  type="button">Søk</button>
+      <p>Far</p>
+      <input type="text" placeholder="Søk etter far..." v-model="dad"/>
+      <button>Søk</button>
     </div>
     <div>
-      <button>Lagre</button>
+      <standard-button>Lagre</standard-button>
     </div>
-  </form>
+  </section>
 </template>
 
 <script setup>
   import { ref } from 'vue' ;
-  import { useRouter } from 'vue-router';
-  
-  const route = useRouter()
+  import StandardButton from "@/components/UI/StandardButton.vue";
 
   const firstName = ref('');
   const age = ref(null);
@@ -77,22 +75,24 @@
   const dad = ref('');
 
 
- function submitForm() {
-    console.log('Fornavn: ' + this.firstName);
-    this.firstName = '';
-}
-
-function goToAddPersonView() {
-        route.push("/select-parent")
-    }
-
-
-// export default {
-//   name: "PersonForm"
+//  function submitForm() {
+//     console.log('Fornavn: ' + this.firstName);
+//     this.firstName = '';
 // }
+
 </script>
 
 <style scoped>
+section {
+  background-color: rgb(38, 66, 58);
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+
+p {
+  margin-bottom: 1px;
+  font-size: 12px
+}
 /*#lag_person_overskrift {*/
 /*  grid-area: header;*/
 /*}*/
