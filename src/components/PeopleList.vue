@@ -6,6 +6,7 @@ const switchFunction = useSwitch()
 console.log(switchFunction.value)
 const listOfPepole = usePeopleList()
 
+// eslint-disable-next-line no-unused-vars
 const props = defineProps(['parentFunction', 'goTo'])
 
 </script>

@@ -4,8 +4,7 @@
 import { searchPerson } from "../RestController/Controller.js"
 import { watch, ref } from "vue"
 import { useRouter } from "vue-router";
-import { usePerson } from "../Store/personStore";
-import Person from "../Models/Person.js"
+import { clearPerson } from "../components/composable/ClearPerson.js"
 // import { FaSearch } from "oh-vue-icons/icons";
 // import OhVueIcon from "oh-vue-icons";
 const search = ref("")
@@ -23,14 +22,7 @@ watch(search, () => {
 })
 
 function goToAddPersonView() {
-    const pers = usePerson()
-    pers.Person = new Person({})
-    console.log(pers + " Pers")
-    console.log(pers)
-    /* const emptyPerson = usePerson()
-    emptyPerson.value = null;
-    emptyPerson.value = new Person()
-    console.log(emptyPerson.value) */
+    clearPerson()
     router.push("/LagPerson")
 }
 
