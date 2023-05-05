@@ -30,6 +30,11 @@ const router = createRouter({
       name: "edit-person",
       component: () => import("../views/EditPersonView.vue"),
     },
+    {
+      path: "/select-parent",
+      name: "select-parent",
+      component: () => import("../views/SelectParent.vue"),
+    },
   ],
 });
 

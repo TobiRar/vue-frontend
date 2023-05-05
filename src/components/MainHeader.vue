@@ -33,7 +33,7 @@ import {searchPerson} from "../RestController/Controller.js"
         <button @click="goToAddPersonView" id="addPersonButton">Legg til person</button>
         <div id="searchPerson">
             <input v-model.trim="search" type="text" placeholder="Søk etter person...">
-        <button @click="searchPerson(search)" id="submitSearch">Submit</button>
+        <button @click="searchPerson(search)" id="submitSearch">Søk</button>
         </div>
     </div>
 </template>

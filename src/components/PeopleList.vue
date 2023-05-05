@@ -8,13 +8,9 @@ const switchFunction = useSwitch()
 console.log(switchFunction.value)
 const listOfPepole = usePeopleList()
 
-
-
-var change = ref('')
 </script>
 
 <template>
-    <slot><h1>Hello</h1></slot>
     <table class="table">
         <tr>
             <th>Fornavn</th>
@@ -22,8 +18,9 @@ var change = ref('')
             <th>Gatenavn</th>
             <th>Nummer</th>
             <th>By</th>
-            <th><slot name="selectBtn">Velg</slot></th>
-            <slot name="deleteBtnHead"></slot>
+            <slot name="selectBtn"><th>Velg</th></slot>
+            <slot name="deleteBtnHead"><th></th></slot>
+
         </tr>
         <tr v-for="person in listOfPepole" :key="person.id"> <!-- v-if her-->
             <td>{{ person.firstName }}</td>

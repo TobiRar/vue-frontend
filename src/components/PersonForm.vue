@@ -49,7 +49,7 @@
     <div class="form-control">
       <label for="dad">Far</label>
       <input id="dad" name="dad" type="text" placeholder="Søk etter far..." v-model="dad"/>
-      <button type="button">Søk</button>
+      <button @click="goToAddPersonView"  type="button">Søk</button>
     </div>
     <div>
       <button>Lagre</button>
@@ -59,6 +59,12 @@
 
 <script setup>
   import { ref } from 'vue' ;
+  import { useRouter } from 'vue-router';
+  import {personstore} from "../Store/personStore"
+  const pers = personstore()
+  pers.person 
+
+  const route = useRouter()
 
   const firstName = ref('');
   const age = ref(null);
@@ -78,6 +84,11 @@
     console.log('Fornavn: ' + this.firstName);
     this.firstName = '';
 }
+
+function goToAddPersonView() {
+        route.push("/select-parent")
+    }
+
 
 // export default {
 //   name: "PersonForm"
