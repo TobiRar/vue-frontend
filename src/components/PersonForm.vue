@@ -60,10 +60,7 @@
 <script setup>
   import { ref } from 'vue' ;
   import { useRouter } from 'vue-router';
-  import {personstore} from "../Store/personStore"
-  const pers = personstore()
-  pers.person 
-
+  
   const route = useRouter()
 
   const firstName = ref('');

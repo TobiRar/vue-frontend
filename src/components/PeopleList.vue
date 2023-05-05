@@ -1,6 +1,4 @@
 <script setup>
-import { ref, onMounted } from "vue"
-import { selectedPerson } from "./composable/selectedPerson.js";
 import { usePeopleList } from "../Store/listOfPeopleStore.js";
 import { useSwitch } from "../Store/switch";
 

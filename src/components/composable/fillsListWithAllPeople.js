@@ -1,4 +1,4 @@
-import {ref, onMounted} from "vue"
+import { onMounted } from "vue"
 import { getPeople } from "../../RestController/Controller"
 import { usePeopleList } from "../../Store/listOfPeopleStore"
 
