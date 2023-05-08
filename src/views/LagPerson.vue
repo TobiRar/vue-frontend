@@ -1,6 +1,6 @@
 <template>
   <back-header></back-header>
-  <person-form></person-form>
+  <person-form :parntfunction="POSTfunction"></person-form>
 </template>
 <script setup>
 import BackHeader from "@/components/BackHeader.vue";

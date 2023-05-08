@@ -31,11 +31,11 @@ export default class Person {
     this.momLastName = person.momLastName ?? null;
 
     this.Adress = new Adress(
-      person.streetName ?? null,
-      person.number ?? NaN,
-      person.city ?? null,
-      person.postNumber ?? NaN,
-      person.country ?? null
+      this.streetName =  person.streetName ?? null,
+      this.number = person.number ?? NaN,
+      this.city = person.city ?? null,
+      this.postNumber = person.postNumber ?? NaN,
+      this.country = person.country ?? null
     );
   }
 }

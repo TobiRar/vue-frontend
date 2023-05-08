@@ -15,7 +15,7 @@
     </div>
     <div class="form-control">
       <p>Gatenavn</p>
-      <input type="text" v-model.trim="person.streetName"/>
+      <input type="text" v-model="person.streetName"/>
     </div>
     <div class="form-control">
       <p>Postnummer</p>
@@ -53,10 +53,10 @@
     <div class="form-control">
       <p>Far</p>
       <input type="text" placeholder="Søk etter far..." v-model="dad"/>
-      <button>Søk</button>
+      <button >Søk</button>
     </div>
     <div>
-      <standard-button>Lagre</standard-button>
+      <standard-button @click="parentFunction">Lagre</standard-button>
     </div>
   </section>
 </template>
@@ -65,7 +65,7 @@
   import StandardButton from "@/components/UI/StandardButton.vue";
   import {usePerson} from "../Store/personStore.js"
 
-  // const props = defineProps(['parentFunction', 'goTo'])
+  const props = defineProps(['parentFunction', 'goTo'])
   const pers = usePerson()
   const person = pers.Person
   console.log(person.firstName)
