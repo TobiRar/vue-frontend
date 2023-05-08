@@ -3,48 +3,52 @@
     <h2 id="lag_person_overskrift">Endre person</h2>
     <div class="form-control">
       <p>Fornavn</p>
-      <input type="text" v-model.trim="firstName"/>
+      <input type="text" v-model="person.firstName"/>
+    </div>
+    <div class="form-control">
+      <p>Etternavn</p>
+      <input type="text" v-model="person.lastName"/>
     </div>
     <div class="form-control">
       <p>Alder</p>
-      <input id="age" name="age" type="number" v-model="age"/>
+      <input id="age" name="age" type="number" v-model="person.age"/>
     </div>
     <div class="form-control">
       <p>Gatenavn</p>
-      <input type="text" v-model.trim="streetName"/>
+      <input type="text" v-model.trim="person.streetName"/>
     </div>
     <div class="form-control">
       <p>Postnummer</p>
-      <input type="number" v-model="postNumber"/>
+      <input type="number" v-model="person.postNumber"/>
     </div>
     <div class="form-control">
       <p>Land</p>
-      <input type="text" v-model.trim="country"/>
+      <input type="text" v-model="person.country"/>
     </div>
     <div class="form-control">
       <p>Mor</p>
-      <input type="text" placeholder="Søk etter mor..." v-model="mom"/>
+      <input type="text" placeholder="Søk etter mor..." v-model="person.mom"/>
       <button>Søk</button>
     </div>
     <div class="form-control">
       <p>Etternavn</p>
-      <input type="text" v-model.trim="lastName"/>
+      <input type="text" v-model="person.lastName"/>
     </div>
     <div class="form-control">
       <p>Fødselsdato</p>
-      <input type="date" v-model="birthDate"/>
+      <input type="date" v-model="person.birthDate"/>
     </div>
     <div class="form-control">
       <p>Gatenummer</p>
-      <input type="number" v-model="streetNumber"/>
+      <input type="number" v-model="person.streetNumber"/>
     </div>
     <div class="form-control">
       <p>By</p>
-      <input type="text" v-model.trim="city"/>
+      <input type="text" v-model="person.city"/>
     </div>
     <div class="form-control">
       <p>Hoderadius</p>
-      <input type="number" v-model="headRadius"/>
+      <input type="number" v-model="person.headRadius"/>
     </div>
     <div class="form-control">
       <p>Far</p>
@@ -58,21 +62,27 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue' ;
   import StandardButton from "@/components/UI/StandardButton.vue";
+  import {usePerson} from "../Store/personStore.js"
 
-  const firstName = ref('');
-  const age = ref(null);
-  const streetName = ref('');
-  const postNumber = ref(null);
-  const country = ref('');
-  const mom = ref('');
-  const lastName = ref('');
-  const birthDate = ref(null);
-  const streetNumber = ref(null);
-  const city = ref('');
-  const headRadius = ref(null);
-  const dad = ref('');
+  // const props = defineProps(['parentFunction', 'goTo'])
+  const pers = usePerson()
+  const person = pers.Person
+  console.log(person.firstName)
+
+
+  // const firstName = ref('');
+  // const age = ref(null);
+  // const streetName = ref('');
+  // const postNumber = ref(null);
+  // const country = ref('');
+  // const mom = ref('');
+  // const lastName = ref('');
+  // const birthDate = ref(null);
+  // const streetNumber = ref(null);
+  // const city = ref('');
+  // const headRadius = ref(null);
+  // const dad = ref('');
 
 
 //  function submitForm() {
