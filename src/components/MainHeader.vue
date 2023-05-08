@@ -1,28 +1,30 @@
 <script setup>
 // import { MdPersonsearch } from "oh-vue-icons/icons";
 //     import {defineProps, watch} from "vue";
-import {searchPerson} from "../RestController/Controller.js"
-    import {watch, ref} from "vue"
-    import { useRouter } from "vue-router";
-    // import { FaSearch } from "oh-vue-icons/icons";
-    // import OhVueIcon from "oh-vue-icons";
-    const search = ref("")
-    const check = ref(false)
-    const router = useRouter()
+import { searchPerson } from "../RestController/Controller.js"
+import { watch, ref } from "vue"
+import { useRouter } from "vue-router";
+import { clearPerson } from "../components/composable/ClearPerson.js"
+// import { FaSearch } from "oh-vue-icons/icons";
+// import OhVueIcon from "oh-vue-icons";
+const search = ref("")
+const check = ref(false)
+const router = useRouter()
 
-    watch(search, () => {
-        console.log(searchPerson.value)
-        if(searchPerson.value == "Jimmy Olsen") {
-            check.value = true
-            console.log(check.value)
-            router.push("/EasterEgg")
-        }
-
-    })
-
-    function goToAddPersonView() {
-        router.push("/LagPerson")
+watch(search, () => {
+    console.log(searchPerson.value)
+    if (searchPerson.value == "Jimmy Olsen") {
+        check.value = true
+        console.log(check.value)
+        router.push("/EasterEgg")
     }
+
+})
+
+function goToAddPersonView() {
+    clearPerson()
+    router.push("/LagPerson")
+}
 
     // function splitSearch() {
 
@@ -33,7 +35,7 @@ import {searchPerson} from "../RestController/Controller.js"
         <button @click="goToAddPersonView" id="addPersonButton">Legg til person</button>
         <div id="searchPerson">
             <input v-model.trim="search" type="text" placeholder="Søk etter person...">
-        <button @click="searchPerson(search)" id="submitSearch">Søk</button>
+            <button @click="searchPerson(search)" id="submitSearch">Søk</button>
         </div>
     </div>
 </template>
@@ -90,5 +92,4 @@ import {searchPerson} from "../RestController/Controller.js"
     outline: none;
     height: 35px;
 }
-
 </style>
