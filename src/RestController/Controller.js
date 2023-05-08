@@ -12,8 +12,7 @@ async function deleteById(id) {
  const response = await fetch("https://localhost:7147/"+id , {
     method: 'DELETE'
   })
-  console.log(response)
-  .then(location.reload());
+  response.then(location.reload());
 }
 
 async function searchPerson(name) {

@@ -3,14 +3,15 @@ import PeopleList from '../components/PeopleList.vue';
 import Header from '../components/MainHeader.vue';
 import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
 import { selectedPerson } from '../components/composable/selectedPerson';
-
-// import {computed} from "vue"
+import { usePeopleList } from "../Store/listOfPeopleStore.js";
+import {deleteById} from "../RestController/Controller.js"
 useFillPeopleList()
+
 
 </script>
 <template>
     <Header />
-    <PeopleList :goTo="'/edit-person'" :parentFunction="selectedPerson">
+    <PeopleList :goTo="'/edit-person'" :parentFunction="selectedPerson" :parentFunction2="deleteById">
         <template v-slot:selectBtn></template>
         deleteBtnHead
         <template v-slot:selectX>Velg
@@ -18,7 +19,7 @@ useFillPeopleList()
         <template v-slot:deleteBtnHead>
             <th>Slett</th>
         </template>
-        <template v-slot:deleteBtn><button @click="deleteById(person.id)">Slett</button></template>
+        <template v-slot:selectY>Slett</template>
     </PeopleList>
 </template>
 <style scoped>

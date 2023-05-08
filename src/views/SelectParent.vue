@@ -4,22 +4,16 @@ import { useFillPeopleList } from '../components/composable/fillsListWithAllPeop
 
 // import {computed} from "vue"
 useFillPeopleList()
-
+function lool(){
+    console.log("funker")
+}
 
 </script>
 <template>
-    <PeopleList>
-        <template v-slot:selectBtn>
+        <PeopleList :goTo="'/edit-person'" :parentFunction="lool"> 
+            <template v-slot:selectX>Velg
             </template>
-
-            <template v-slot:deleteBtnHead>
-                <th></th></template>
-        <template v-slot:selectX>
-            <button 
-            @click="() => { $router.push('/edit-person'); selectedPerson(person) }">Velg</button>
-        </template>
-        <template v-slot:deleteBtn></template>
-    </PeopleList>
+        </PeopleList>
 </template>
 <style scoped>
  button {

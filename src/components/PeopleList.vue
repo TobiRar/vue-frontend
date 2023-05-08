@@ -5,13 +5,16 @@ import { useSwitch } from "../Store/switch";
 const switchFunction = useSwitch()
 console.log(switchFunction.value)
 const listOfPepole = usePeopleList()
+console.log(listOfPepole)
 
 // eslint-disable-next-line no-unused-vars
-const props = defineProps(['parentFunction', 'goTo'])
+const props = defineProps(['parentFunction', 'goTo', 'parentFunction2'])
 
 </script>
 
 <template>
+
+
     <table class="table">
         <tr>
             <th>Fornavn</th>
@@ -22,7 +25,7 @@ const props = defineProps(['parentFunction', 'goTo'])
             <slot name="selectBtn">
                 <th>Velg</th>
             </slot>
-            <slot name="deleteBtnHead">
+            <slot v-if="parentFunction2" name="deleteBtnHead" >
                 <th></th>
             </slot>
 
@@ -39,8 +42,10 @@ const props = defineProps(['parentFunction', 'goTo'])
                 </button>
                 <!-- <slot name="selectX" @click="selectedPerson.value = person"></slot> -->
             </td>
-            <td>
-                <slot name="deleteBtn"></slot>
+            <td v-if="parentFunction2">
+                <button @click=" parentFunction2(person.id)">
+                    <slot name="selectY"></slot>
+                </button>
             </td>
         </tr>
 

@@ -34,7 +34,7 @@ function goToAddPersonView() {
     <div class="header-container">
         <button @click="goToAddPersonView" id="addPersonButton">Legg til person</button>
         <div id="searchPerson">
-            <input v-model.trim="search" type="text" placeholder="Søk etter person...">
+            <input v-model="search" type="text" placeholder="Søk etter person...">
             <button @click="searchPerson(search)" id="submitSearch">Søk</button>
         </div>
     </div>

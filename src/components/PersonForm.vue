@@ -64,12 +64,19 @@
 <script setup>
   import StandardButton from "@/components/UI/StandardButton.vue";
   import {usePerson} from "../Store/personStore.js"
+  import {useRouter} from "vue-router"
+  import { searchPerson } from "../RestController/Controller";
+  import {ref} from "vue";
 
-  const props = defineProps(['parentFunction', 'goTo'])
+  const search = ref("Halvor")
+  const router = useRouter();
   const pers = usePerson()
   const person = pers.Person
-  console.log(person.firstName)
 
+    function goToParentView() {
+      searchPerson(search.value)
+      router.push("/select-parent")
+    }
 
   // const firstName = ref('');
   // const age = ref(null);
