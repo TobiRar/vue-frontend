@@ -1,6 +1,7 @@
 <template>
   <section class="form">
     <h2 id="lag_person_overskrift">Endre person</h2>
+    <div class="input-container-1">
     <div class="form-control">
       <p>Fornavn</p>
       <input type="text" v-model="person.firstName"/>
@@ -28,8 +29,10 @@
     <div class="form-control">
       <p>Mor</p>
       <input type="text" placeholder="Søk etter mor..." v-model="person.mom"/>
-      <button>Søk</button>
+      <button><vue-feather type="search" size="10" stroke-width="4"></vue-feather></button>
     </div>
+    </div>
+    <div class="input-container-2">
     <div class="form-control">
       <p>Etternavn</p>
       <input type="text" v-model="person.lastName"/>
@@ -53,8 +56,10 @@
     <div class="form-control">
       <p>Far</p>
       <input type="text" placeholder="Søk etter far..." v-model="dad"/>
-      <button >Søk</button>
+      <button ><vue-feather type="search" size="10px" stroke-width="4"></vue-feather></button>
     </div>
+    </div>
+
     <div>
       <standard-button @click="parentFunction">Lagre</standard-button>
     </div>
@@ -62,6 +67,8 @@
 </template>
 
 <script setup>
+  import VueFeather from 'vue-feather';
+
   import StandardButton from "@/components/UI/StandardButton.vue";
   import {usePerson} from "../Store/personStore.js"
   import {useRouter} from "vue-router"
@@ -100,16 +107,43 @@
 </script>
 
 <style scoped>
-section {
+
+  * {
+  box-sizing: border-box;
+  }
+
+  section {
   background-color: rgb(38, 66, 58);
   margin: 0;
   color: rgb(255, 255, 255);
-}
+  }
 
-p {
-  margin-bottom: 1px;
-  font-size: 12px
-}
+  .form-control p {
+    margin-bottom: 1px;
+    font-size: 12px
+  }
+
+  .form-control button {
+      background-color: rgb(90, 234, 146);
+      color: rgb(38, 66, 58);
+      border: 1px solid rgb(90, 234, 146);
+      border-radius: 12px;
+      padding: 1px 6px;
+      right: 2px;
+      top: 3px;
+      /*position: absolute;*/
+      cursor: pointer;
+  }
+
+  .form-control input {
+      border: 0;
+      border-radius: 12px;
+      padding: 5px 20px 5px 15px;
+      outline: none;
+      margin-top: 0;
+      width: 100%;
+  }
+
 /*#lag_person_overskrift {*/
 /*  grid-area: header;*/
 /*}*/
