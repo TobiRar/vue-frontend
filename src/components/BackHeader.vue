@@ -15,6 +15,7 @@ const router = useRouter()
 
 <style scoped>
   header {
+    margin: 20px;
     background-color: rgb(38, 66, 58);
     justify-content: left;
   }
