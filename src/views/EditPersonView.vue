@@ -1,17 +1,14 @@
 <template>
   <back-header></back-header>
-  <person-form :parentFunction="PUTfunction" ><template v-slot:editOrCreate>Rediger</template></person-form>
+  <person-form :parentFunction="editPerson" ><template v-slot:editOrCreate>Rediger</template></person-form>
 </template>
 
 <script setup>
   // import { ref } from 'vue';
   import BackHeader from "@/components/BackHeader.vue";
   import PersonForm from "@/components/PersonForm.vue";
+  import { editPerson } from "../RestController/Controller";
 
-  //imoport put function :parntfunction="PUTfunction"
-  function PUTfunction(){
-  console.log("bytt ut meg senere")
-}
 
   
 </script>

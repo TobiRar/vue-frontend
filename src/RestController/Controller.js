@@ -45,14 +45,17 @@ async function createPerson(callback) {
 }
 
 async function editPerson() {
-  const person = usePerson();
-  await fetch("https://localhost:7147/updatePerson", person)
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
-    })
-    .catch((e) => {
-      console.log(e);
+  const Person = usePerson();
+  await fetch("https://localhost:7147/updatePerson", {
+    method: 'PUT',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(Person.Person)
+  })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch((e) => {console.log(e)
     });
 }
 
