@@ -2,7 +2,7 @@ import Adress from "./Adress.js";
 
 export default class Person {
   constructor(person) {
-    this.id = parseInt(person.id) ?? NaN;
+    this.id = person.id;
     this.firstName = person.firstName ?? null;
     this.lastName = person.lastName ?? null;
     this.age = parseInt(person.age) ?? NaN;
@@ -15,13 +15,13 @@ export default class Person {
     this.momFirstName = person.momFirstName ?? null;
     this.momLastName = person.momLastName ?? null;
 
-    this.Adress = new Adress(
+    this.adress = new Adress(
       person.streetName ?? null,
       person.number ?? NaN,
-       person.city ?? null,
-       person.postNumber ?? NaN,
-       person.country ?? null
-    )
+      person.city ?? null,
+      person.postNumber ?? NaN,
+      person.country ?? null
+    );
   }
 }
 
