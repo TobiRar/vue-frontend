@@ -41,8 +41,6 @@ async function createPerson() {
     body: JSON.stringify(Person.Person),
   });
   console.log(response);
-  const jsonData = await response.json();
-  return jsonData;
 }
 
 async function editPerson() {
