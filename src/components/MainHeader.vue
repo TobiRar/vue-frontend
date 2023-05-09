@@ -12,8 +12,8 @@ const check = ref(false)
 const router = useRouter()
 
 watch(search, () => {
-    console.log(searchPerson.value)
-    if (searchPerson.value == "Jimmy Olsen") {
+    console.log(search.value)
+    if (search.value == "Jimmy Olsen") {
         check.value = true
         console.log(check.value)
         router.push("/EasterEgg")
