@@ -26,8 +26,8 @@
         <div class="form-control">
           <p>Mor</p>
           <div class="parent-search">
-            <input type="text" placeholder="Søk etter mor..." v-model="search"/>
-            <button @click="goToParentView()"><vue-feather type="search" size="10" stroke-width="4"></vue-feather></button>
+            <input type="text" placeholder="Søk etter mor..." v-model="searchMom"/>
+            <button @click="goToParentView('mom', searchMom)"><vue-feather type="search" size="10" stroke-width="4"></vue-feather></button>
           </div>
         </div>
       </div>
@@ -55,8 +55,8 @@
         <div class="form-control">
           <p>Far</p>
           <div class="parent-search">
-            <input type="text" placeholder="Søk etter far..." v-model="search"/>
-            <button @click="goToParentView('dad')"><vue-feather type="search" size="10px" stroke-width="4"></vue-feather></button>
+            <input type="text" placeholder="Søk etter far..." v-model="searchDad"/>
+            <button @click="goToParentView('dad', searchDad)"><vue-feather type="search" size="10px" stroke-width="4"></vue-feather></button>
           </div>
         </div>
       </div>
@@ -77,17 +77,20 @@
   import {ref} from "vue";
   import { useSelectedParent } from '../Store/selectedPerson'; 
 
+ 
+
   defineProps(["parentFunction"])
 
-  const search = ref("")
+  const searchDad = ref("")
+  const searchMom = ref("")
   const router = useRouter();
   const pers = usePerson()
   const person = pers.Person
 
-    function goToParentView(parentToChoose) {
+    function goToParentView(parentToChoose, searchfield) {
       const parent = useSelectedParent()
       parent.value = parentToChoose
-      searchPerson(search.value)
+      searchPerson(searchfield)
       router.push("/select-parent")
     }
 

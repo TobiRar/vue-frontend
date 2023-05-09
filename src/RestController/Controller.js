@@ -1,7 +1,9 @@
 import { usePeopleList } from "../Store/listOfPeopleStore";
 import { usePerson } from "../Store/personStore";
 import { ref } from "vue";
+import {useRouter} from "vue-router"
 
+const router = useRouter()
 async function getPeople() {
   const response = await fetch("https://localhost:7147/all");
   const jsonData = await response.json();
@@ -39,7 +41,7 @@ async function createPerson() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(Person.Person),
-  });
+  }).then(( router.push("/")));
   console.log(response);
 }
 
