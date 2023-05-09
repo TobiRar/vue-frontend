@@ -39,7 +39,7 @@ async function createPerson(callback) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(Person.Person),
-  }).then(router.push("/"));
+  });
   console.log(response);
   callback();
 }
