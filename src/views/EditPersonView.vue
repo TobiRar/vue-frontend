@@ -4,7 +4,6 @@
 </template>
 
 <script setup>
-  // import { ref } from 'vue';
   import BackHeader from "@/components/BackHeader.vue";
   import PersonForm from "@/components/PersonForm.vue";
   import { editPerson } from "../RestController/Controller";
@@ -14,5 +13,7 @@
 </script>
 
 <style>
-
+  * {
+    box-sizing: border-box;
+  }
 </style>
