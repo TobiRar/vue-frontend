@@ -44,16 +44,20 @@ async function createPerson(callback) {
   callback();
 }
 
-async function editPerson() {
-  const person = usePerson();
-  await fetch("https://localhost:7147/updatePerson", person)
-    .then((respose) => respose.json())
-    .then((json) => {
-      console.log(json);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+async function editPerson(callback) {
+  const Person = usePerson();
+  const response = await fetch("https://localhost:7147/updatePerson", {
+    method: 'PUT',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(Person.Person)});
+    const responseText = await response.text();
+    console.log(responseText);
+      // .then(response => response.json())
+      // .then(data => console.log(data))
+      // .catch((e) => {console.log(e)
+    callback();
 }
 
 export { getPeople, searchPerson, deleteById, createPerson, editPerson };

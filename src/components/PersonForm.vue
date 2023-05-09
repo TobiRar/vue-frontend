@@ -1,7 +1,7 @@
 <template>
   <section class="form">
     <div class="form-container">
-      <h2 class="form-h2">Endre person</h2>
+      <h2 class="form-h2" ><slot name="editOrCreate"></slot> person</h2>
       <div class="input-container-1">
         <div class="form-control">
           <p>Fornavn</p>
@@ -81,7 +81,7 @@ import { useSelectedParent } from '../Store/selectedPerson';
 
  
 
-  defineProps(["parentFunction"])
+  defineProps(["parentFunction", "editOrCreate" ])
 
   const searchDad = ref("")
   const searchMom = ref("")
