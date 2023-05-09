@@ -12,6 +12,7 @@ const router = useRouter()
 
 function gotofunc() {
     router.push('/edit-person')
+
 }
 
 </script>
