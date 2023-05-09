@@ -1,9 +1,6 @@
 <script setup>
 import { usePeopleList } from "../Store/listOfPeopleStore.js";
-import { useSwitch } from "../Store/switch";
 
-const switchFunction = useSwitch()
-console.log(switchFunction.value)
 const listOfPepole = usePeopleList()
 console.log(listOfPepole)
 

@@ -28,8 +28,8 @@
     </div>
     <div class="form-control">
       <p>Mor</p>
-      <input type="text" placeholder="Søk etter mor..." v-model="person.mom"/>
-      <button><vue-feather type="search" size="10" stroke-width="4"></vue-feather></button>
+      <input type="text" placeholder="Søk etter mor..." v-model="search"/>
+      <button @click="goToParentView('mom')"><vue-feather type="search" size="10" stroke-width="4"></vue-feather></button>
     </div>
     </div>
     <div class="input-container-2">
@@ -56,7 +56,7 @@
     <div class="form-control">
       <p>Far</p>
       <input type="text" placeholder="Søk etter far..." v-model="search"/>
-      <button @click="goToParentView  "><vue-feather type="search" size="10px" stroke-width="4"></vue-feather></button>
+      <button @click="goToParentView('dad') "><vue-feather type="search" size="10px" stroke-width="4"></vue-feather></button>
     </div>
     </div>
 
@@ -74,6 +74,7 @@
   import {useRouter} from "vue-router"
   import { searchPerson } from "../RestController/Controller";
   import {ref} from "vue";
+  import { useSelectedParent } from '../Store/selectedPerson'; 
 
   defineProps(["parentFunction"])
 
@@ -82,7 +83,9 @@
   const pers = usePerson()
   const person = pers.Person
 
-    function goToParentView() {
+    function goToParentView(parentToChoose) {
+      const parent = useSelectedParent()
+      parent.value = parentToChoose
       searchPerson(search.value)
       router.push("/select-parent")
     }

@@ -2,6 +2,14 @@ import { ref } from "vue";
 
 const selectedPerson = ref(null);
 
-export function useSelectedPerson() {
+function useSelectedPerson() {
   return selectedPerson;
 }
+
+const selectedParent = ref("")
+
+function useSelectedParent(){
+  return selectedParent;
+}
+
+export {useSelectedPerson, useSelectedParent}
