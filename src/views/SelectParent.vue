@@ -3,7 +3,6 @@ import PeopleList from '../components/PeopleList.vue';
 import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
 
 // import {computed} from "vue"
-useFillPeopleList()
 function lool() {
     // Denne funksjonen velger id fra en person og putter det i personen som redigeres eller lages
     console.log("funker")
