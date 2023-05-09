@@ -1,9 +1,6 @@
 <template>
   <back-header></back-header>
-  <person-form :parentFunction="PUTfunction">
-    <template v-slot: editAndDeleteHeader>Rediger person
-    </template>
-  </person-form>
+  <person-form :parentFunction="PUTfunction" ><template v-slot:editOrCreate>Rediger</template></person-form>
 </template>
 
 <script setup>

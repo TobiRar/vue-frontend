@@ -1,9 +1,7 @@
 import { usePeopleList } from "../Store/listOfPeopleStore";
 import { usePerson } from "../Store/personStore";
 import { ref } from "vue";
-import {useRouter} from "vue-router"
 
-const router = useRouter()
 async function getPeople() {
   const response = await fetch("https://localhost:7147/all");
   const jsonData = await response.json();
@@ -41,7 +39,7 @@ async function createPerson(callback) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(Person.Person),
-  }).then(( router.push("/")));
+  });
   console.log(response);
   callback();
 }
@@ -49,7 +47,7 @@ async function createPerson(callback) {
 async function editPerson() {
   const person = usePerson();
   await fetch("https://localhost:7147/updatePerson", person)
-    .then((respose) => respose.json())
+    .then((response) => response.json())
     .then((json) => {
       console.log(json);
     })

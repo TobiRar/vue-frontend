@@ -2,14 +2,14 @@ import { usePerson } from "../../Store/personStore";
 import { useSelectedParent } from "../../Store/selectedPerson";
 
 const parent = useSelectedParent()
- export function getPersonStatsById(person) {
+ export function getPersonStatsById() {
      const pers = usePerson()
     if(parent.value === "dad") {
-        pers.Person.dadId = person.id
+        pers.Person.dadId = parent.id
         console.log(pers.Person.dadId)
         console.log(pers.Person)
         return
     }
-    pers.Person.momId = person.id
+    pers.Person.momId = parent.id
     console.log(pers.Person.momId)
 }

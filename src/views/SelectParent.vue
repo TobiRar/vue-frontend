@@ -1,6 +1,7 @@
 <script setup>
 import PeopleList from '../components/PeopleList.vue';
 import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
+import BackHeader from "@/components/BackHeader.vue";
 
 // import {computed} from "vue"
 function lool() {
@@ -10,6 +11,7 @@ function lool() {
 
 </script>
 <template>
+  <back-header></back-header>
     <PeopleList :goTo="'/edit-person'" :parentFunction="lool">
         <template v-slot:selectX>Velg
         </template>

@@ -5,6 +5,7 @@ import { searchPerson } from "../RestController/Controller.js"
 import { watch, ref } from "vue"
 import { useRouter } from "vue-router";
 import { clearPerson } from "../components/composable/ClearPerson.js"
+import VueFeather from 'vue-feather';
 // import { FaSearch } from "oh-vue-icons/icons";
 // import OhVueIcon from "oh-vue-icons";
 const search = ref("")
@@ -35,7 +36,7 @@ function goToAddPersonView() {
         <button @click="goToAddPersonView" id="addPersonButton">Legg til person</button>
         <div id="searchPerson">
             <input v-model="search" type="text" placeholder="Søk etter person...">
-            <button @click="searchPerson(search)" id="submitSearch">Søk</button>
+            <button @click="searchPerson(search)" id="submitSearch"><vue-feather type="search" size="10px" stroke-width="4"></vue-feather></button>
         </div>
     </div>
 </template>

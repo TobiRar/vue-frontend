@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import FrontView from "../views/FrontView.vue";
+import NotFoundView from "../views/NotFoundView.vue";
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +37,11 @@ const router = createRouter({
       name: "select-parent",
       component: () => import("../views/SelectParent.vue"),
     },
+    {
+      path: "/:catchall(.*)*",
+      name: "Not Found",
+      component: NotFoundView
+  }
   ],
 });
 
