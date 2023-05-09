@@ -48,7 +48,7 @@ async function createPerson() {
 async function editPerson() {
   const person = usePerson();
   await fetch("https://localhost:7147/updatePerson", person)
-    .then((respose) => respose.json())
+    .then((response) => response.json())
     .then((json) => {
       console.log(json);
     })
