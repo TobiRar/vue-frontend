@@ -1,4 +1,5 @@
 import { usePeopleList } from "../Store/listOfPeopleStore";
+import { usePerson } from "../Store/personStore";
 import {ref} from "vue"
 
 async function getPeople() {
@@ -29,14 +30,22 @@ const jsonData = await response.json()
 console.log(jsonData)
 }
 
-async function createPerson(person) {
-  const response = await fetch('https://localhost:7147/CreatePerson', person)
+async function createPerson() {
+  const Person = usePerson()
+  const response = await fetch('https://localhost:7147/CreatePerson',{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({person: Person}),
+  })
   console.log(response)
   const jsonData = await response.json()
   return jsonData
 }
 
-async function editPerson(person) {
+async function editPerson() {
+  const person = usePerson()
    await fetch('https://localhost:7147/updatePerson', person)
   .then((respose) => respose.json())
   .then((json) => {

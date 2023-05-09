@@ -1,14 +1,13 @@
 <template>
   <back-header></back-header>
-  <person-form :parentFunction="POSTfunction"></person-form>
+  <person-form :parentFunction="createPerson"></person-form>
 </template>
 <script setup>
 import BackHeader from "@/components/BackHeader.vue";
 import PersonForm from "@/components/PersonForm.vue";
+import { createPerson } from "../RestController/Controller";
 
-function POSTfunction(){
-  console.log("bytt meg")
-}
+
 </script>
 
 <style>
