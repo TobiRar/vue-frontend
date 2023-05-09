@@ -1,7 +1,9 @@
 <template>
   <section class="form">
     <div class="form-container">
-      <h2 class="form-h2">Endre person</h2>
+        <h2 class="form-h2"><slot>
+        </slot>
+        </h2>
       <div class="input-container-1">
         <div class="form-control">
           <p>Fornavn</p>
