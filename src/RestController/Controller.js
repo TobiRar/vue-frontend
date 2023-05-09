@@ -31,7 +31,7 @@ async function searchPerson(name) {
   console.log(jsonData);
 }
 
-async function createPerson() {
+async function createPerson(callback) {
   const Person = usePerson();
   const response = await fetch("https://localhost:7147/CreatePerson", {
     method: "POST",
@@ -41,6 +41,7 @@ async function createPerson() {
     body: JSON.stringify(Person.Person),
   });
   console.log(response);
+  callback();
 }
 
 async function editPerson() {
