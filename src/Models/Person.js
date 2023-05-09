@@ -7,7 +7,7 @@ export default class Person {
     this.lastName = person.lastName ?? null;
     this.age = parseInt(person.age) ?? NaN;
     this.headRadius = parseFloat(person.headRadius) ?? NaN;
-    this.birthDay = Date.parse(person.birthDay) ?? NaN;
+    this.birthDay = person.birthDay
     this.momId = parseInt(this.momId) ?? NaN;
     this.dadId = parseInt(this.dadId) ?? NaN;
     this.dadFirstName = person.dadFirstName ?? null;
