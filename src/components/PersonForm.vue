@@ -13,15 +13,15 @@
         </div>
         <div class="form-control">
           <p>Gatenavn</p>
-          <input type="text" v-model="person.streetName" />
+          <input type="text" v-model="person.adress.streetName" />
         </div>
         <div class="form-control">
           <p>Postnummer</p>
-          <input type="number" v-model="person.postNumber" />
+          <input type="number" v-model="person.adress.number" />
         </div>
         <div class="form-control">
           <p>Land</p>
-          <input type="text" v-model="person.country" />
+          <input type="text" v-model="person.adress.country" />
         </div>
         <div class="form-control">
           <p>Mor</p>
@@ -43,11 +43,11 @@
         </div>
         <div class="form-control">
           <p>Gatenummer</p>
-          <input type="number" v-model="person.streetNumber" />
+          <input type="number" v-model="person.adress.streetNumber" />
         </div>
         <div class="form-control">
           <p>By</p>
-          <input type="text" v-model="person.city" />
+          <input type="text" v-model="person.adress.city" />
         </div>
         <div class="form-control">
           <p>Hoderadius</p>
