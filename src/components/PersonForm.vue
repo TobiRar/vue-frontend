@@ -55,8 +55,8 @@
     </div>
     <div class="form-control">
       <p>Far</p>
-      <input type="text" placeholder="Søk etter far..." v-model="dad"/>
-      <button ><vue-feather type="search" size="10px" stroke-width="4"></vue-feather></button>
+      <input type="text" placeholder="Søk etter far..." v-model="search"/>
+      <button @click="goToParentView  "><vue-feather type="search" size="10px" stroke-width="4"></vue-feather></button>
     </div>
     </div>
 
@@ -75,7 +75,9 @@
   import { searchPerson } from "../RestController/Controller";
   import {ref} from "vue";
 
-  const search = ref("Halvor")
+  defineProps(["parentFunction"])
+
+  const search = ref("")
   const router = useRouter();
   const pers = usePerson()
   const person = pers.Person

@@ -1,6 +1,6 @@
 <template>
   <back-header></back-header>
-  <person-form ></person-form>
+  <person-form :parentFunction="PUTfunction"></person-form>
 </template>
 
 <script setup>
@@ -9,6 +9,9 @@
   import PersonForm from "@/components/PersonForm.vue";
 
   //imoport put function :parntfunction="PUTfunction"
+  function PUTfunction(){
+  console.log("bytt ut meg senere")
+}
 
   
 </script>
