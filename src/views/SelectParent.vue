@@ -1,16 +1,11 @@
 <script setup>
 import PeopleList from '../components/PeopleList.vue';
-import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
+import {getPersonStatsById} from "../components/composable/SavePerson.js"
 
-// import {computed} from "vue"
-useFillPeopleList()
-function lool(){
-    console.log("funker")
-}
 
 </script>
 <template>
-        <PeopleList :goTo="'/edit-person'" :parentFunction="lool"> 
+        <PeopleList :goTo="'/edit-person'" :parentFunction="getPersonStatsById"> 
             <template v-slot:selectX>Velg
             </template>
         </PeopleList>
