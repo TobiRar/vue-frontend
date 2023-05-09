@@ -4,14 +4,20 @@ import Header from '../components/MainHeader.vue';
 import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
 import { selectedPerson } from '../components/composable/selectedPerson';
 import { usePeopleList } from "../Store/listOfPeopleStore.js";
-import {deleteById} from "../RestController/Controller.js"
+import { deleteById } from "../RestController/Controller.js"
+import { useRouter } from 'vue-router';
 useFillPeopleList()
 
+const router = useRouter()
+
+function gotofunc() {
+    router.push('/edit-person')
+}
 
 </script>
 <template>
     <Header />
-    <PeopleList :goTo="'/edit-person'" :parentFunction="selectedPerson" :parentFunction2="deleteById">
+    <PeopleList :goTo="gotofunc" :parentFunction="selectedPerson" :parentFunction2="deleteById">
         <template v-slot:selectBtn></template>
         deleteBtnHead
         <template v-slot:selectX>Velg

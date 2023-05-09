@@ -10,8 +10,6 @@ const props = defineProps(['parentFunction', 'goTo', 'parentFunction2'])
 </script>
 
 <template>
-
-
     <table class="table">
         <tr>
             <th>Fornavn</th>
@@ -22,7 +20,7 @@ const props = defineProps(['parentFunction', 'goTo', 'parentFunction2'])
             <slot name="selectBtn">
                 <th>Velg</th>
             </slot>
-            <slot v-if="parentFunction2" name="deleteBtnHead" >
+            <slot v-if="parentFunction2" name="deleteBtnHead">
                 <th></th>
             </slot>
 
@@ -34,7 +32,7 @@ const props = defineProps(['parentFunction', 'goTo', 'parentFunction2'])
             <td>{{ person.number }}</td>
             <td>{{ person.city }}</td>
             <td>
-                <button @click="() => { $router.push(goTo); parentFunction(person) }">
+                <button @click="() => { goTo(); parentFunction(person) }">
                     <slot name="selectX"></slot>
                 </button>
                 <!-- <slot name="selectX" @click="selectedPerson.value = person"></slot> -->
