@@ -1,7 +1,5 @@
 <script setup>
-import { usePerson } from '../Store/personStore';
 import PeopleList from '../components/PeopleList.vue';
-import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
 import { useRouter } from 'vue-router';
 import { getPersonStatsById } from '../components/composable/SavePerson.js'
 const router = useRouter()
