@@ -1,16 +1,18 @@
 <script setup>
+import { usePerson } from '../Store/personStore';
 import PeopleList from '../components/PeopleList.vue';
 import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
-
+import { useRouter } from 'vue-router';
+import { getPersonStatsById } from '../components/composable/SavePerson.js'
+const router = useRouter()
 // import {computed} from "vue"
-function lool() {
-    // Denne funksjonen velger id fra en person og putter det i personen som redigeres eller lages
-    console.log("funker")
+function goBack() {
+    router.back()
 }
 
 </script>
 <template>
-    <PeopleList :goTo="'/edit-person'" :parentFunction="lool">
+    <PeopleList :goTo="goBack" :parentFunction="getPersonStatsById">
         <template v-slot:selectX>Velg
         </template>
     </PeopleList>
