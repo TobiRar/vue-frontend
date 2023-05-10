@@ -17,9 +17,7 @@ const props = defineProps(['parentFunction', 'goTo', 'parentFunction2'])
             <th>Gatenavn</th>
             <th>Nummer</th>
             <th>By</th>
-            <slot name="selectBtn">
-                <th>Velg</th>
-            </slot>
+            <th><slot name="selectBtn"></slot></th>
             <slot v-if="parentFunction2" name="deleteBtnHead">
                 <th></th>
             </slot>

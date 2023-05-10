@@ -14,6 +14,8 @@ function goBack() {
 <template>
     <BackHeader></BackHeader>
     <PeopleList :goTo="goBack" :parentFunction="getPersonStatsById">
+        <template v-slot:selectBtn>Velg
+        </template>
         <template v-slot:selectX>Velg
         </template>
     </PeopleList>
