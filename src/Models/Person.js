@@ -6,7 +6,7 @@ export default class Person {
     this.firstName = person.firstName;
     this.lastName = person.lastName;
     this.age = person.age;
-    this.headRadius = parseFloat(person.headRadius);
+    this.headRadius = Number(person.headRadius);
     this.birthDay = person.birthDay;
     this.momId = person.momId;
     this.dadId = person.dadId;
