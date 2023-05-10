@@ -8,12 +8,12 @@ export default class Person {
     this.age = parseInt(person.age) 
     this.headRadius = parseFloat(person.headRadius)
     this.birthDay = person.birthDay
-    this.momId = parseInt(person.momId) 
-    this.dadId = parseInt(person.dadId) 
-    this.dadFirstName = person.dadFirstName 
-    this.dadLastName = person.dadLastName 
-    this.momFirstName = person.momFirstName
-    this.momLastName = person.momLastName
+    this.momId = parseInt(person.momId) ?? null
+    this.dadId = parseInt(person.dadId) ?? null
+    this.dadFirstName = person.dadFirstName ?? ""
+    this.dadLastName = person.dadLastName ?? ""
+    this.momFirstName = person.momFirstName ?? ""
+    this.momLastName = person.momLastName ?? ""
 
     this.adress = new Adress(
       person.streetName, 

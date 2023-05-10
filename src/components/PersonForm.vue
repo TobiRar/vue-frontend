@@ -26,8 +26,8 @@
         <div class="form-control">
           <p>Mor</p>
           <div class="parent-search">
-            <input type="text" placeholder="Søk etter mor..." v-model="searchMom" />
-            <button @click="goToParentView('mom', searchMom)"><vue-feather type="search" size="10"
+            <input type="text" placeholder="Søk etter mor..." v-model="momName" />
+            <button @click="goToParentView('mom', momName)"><vue-feather type="search" size="10"
                 stroke-width="4"></vue-feather></button>
           </div>
         </div>
@@ -56,8 +56,8 @@
         <div class="form-control">
           <p>Far</p>
           <div class="parent-search">
-            <input type="text" placeholder="Søk etter far..." v-model="searchDad" />
-            <button @click="goToParentView('dad', searchDad)"><vue-feather type="search" size="10px"
+            <input type="text" placeholder="Søk etter far..." v-model="dadName" />
+            <button @click="goToParentView('dad', dadName)"><vue-feather type="search" size="10px"
                 stroke-width="4"></vue-feather></button>
           </div>
         </div>
@@ -76,25 +76,28 @@ import StandardButton from "@/components/UI/StandardButton.vue";
 import { usePerson } from "../Store/personStore.js"
 import { useRouter } from "vue-router"
 import { searchPerson } from "../RestController/Controller";
-import { ref } from "vue";
 import { useSelectedParent } from '../Store/selectedPerson';
-
- 
 
   defineProps(["parentFunction", "editOrCreate" ])
 
-  const searchDad = ref("")
-  const searchMom = ref("")
   const router = useRouter();
   const pers = usePerson()
   const person = pers.Person
 
-    function goToParentView(parentToChoose, searchfield) {
+  // const momName = MakeMomName();
+  const momName = person.momFirstName + " " + person.momLastName
+  const dadName = person.dadFirstName  + " " + person.dadLastName 
+
+
+
+   function goToParentView(parentToChoose, searchfield) {
       const parent = useSelectedParent()
       parent.value = parentToChoose
       searchPerson(searchfield)
       router.push("/select-parent")
-    }
+  }
+
+    
 
 </script>
 
