@@ -16,9 +16,9 @@ async function deleteById(id) {
 }
 
 async function searchPerson(name) {
-  const arr = ref([]);
-  arr.value = name;
-  var splitName = arr.value.split(" ");
+  let arr =  [];
+  arr = name;
+  var splitName = arr.split(" ");
   splitName[0];
   const newPeopleList = usePeopleList();
   const firstName = splitName[0];
