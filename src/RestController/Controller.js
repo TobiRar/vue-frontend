@@ -12,7 +12,11 @@ async function deleteById(id) {
   const response = await fetch("https://localhost:7147/" + id, {
     method: "DELETE",
   });
-  response.then(location.reload());
+  if(response.status === 500) {
+    alert("Du kan ikke slette en forelder!")
+    console.log(response)
+  }
+  // response.then(location.reload());
 }
 
 async function searchPerson(name) {
@@ -50,6 +54,9 @@ async function errorHandler(response, callback){
     if(jsondata['detail'] === "sameparent") {
       alert("Du kan ikke ha samme parent")
     }
+    // if(response. === "deleteparent") {
+    //   alert("Du kan ikke slette en forelder")
+    // }
     else {
       alert("Du kan ikke ha deg selv som forelder din gjøk! \n Tulling ass")
     }
