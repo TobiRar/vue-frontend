@@ -8,9 +8,15 @@ export function getPersonStatsById(person) {
   if (parent.value === "dad") {
     pers.Person.dadId = person.id;
     console.log(pers.Person.dadId);
+    pers.Person.dadFirstName = person.firstName ?? "";
+    pers.Person.dadLastName = person.lastName ?? "";
     console.log(pers.Person);
+    console.log(person);
+
     return;
   }
   pers.Person.momId = person.id;
+  pers.Person.momFirstName = person.firstName ?? "";
+  pers.Person.momLastName = person.lastName ?? "";
   console.log(pers.Person.momId);
 }
