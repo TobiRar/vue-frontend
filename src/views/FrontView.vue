@@ -19,7 +19,7 @@ function gotofunc() {
 <template>
     <Header />
     <PeopleList :goTo="gotofunc" :parentFunction="selectedPerson" :parentFunction2="deleteById">
-        <template v-slot:selectBtn></template>
+        <template v-slot:selectBtn>Rediger</template>
         deleteBtnHead
         <template v-slot:selectX><vue-feather type="edit-2" size="12px" stroke-width="3"></vue-feather>
         </template>
