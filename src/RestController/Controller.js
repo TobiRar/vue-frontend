@@ -62,9 +62,6 @@ async function errorHandler(response, callback) {
     // if(response. === "deleteparent") {
     //   alert("Du kan ikke slette en forelder")
     // }
-    else {
-      alert("Du kan ikke ha deg selv som forelder din gjøk! \n Tulling ass")
-    }
     return
   }
   callback();
