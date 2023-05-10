@@ -1,6 +1,5 @@
 import { usePeopleList } from "../Store/listOfPeopleStore";
 import { usePerson } from "../Store/personStore";
-import { ref } from "vue";
 
 async function getPeople() {
   const response = await fetch("https://localhost:7147/all");
@@ -20,13 +19,17 @@ async function deleteById(id) {
 }
 
 async function searchPerson(name) {
-  let arr =  [];
-  arr = name;
-  var splitName = arr.split(" ");
-  splitName[0];
   const newPeopleList = usePeopleList();
-  const firstName = splitName[0];
-  const lastName = splitName[1];
+  let trimmedName = name.trim(); // Fjerner whitespace " " fra begynnelsen og slutten av name
+  const splitName = trimmedName.split(" ");
+  const lastName = splitName.splice(-1); // Forander splitName arrayet
+  let firstName = splitName.join(" ");
+
+  if (!firstName) {
+    firstName = lastName;
+  }
+  console.log(firstName);
+
   const response = await fetch(
     `https://localhost:7147/getparents?firstName=${firstName}&lastName=${lastName}`
   );
@@ -43,16 +46,18 @@ async function createPerson(callback) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(Person.Person),
-  })
-  await errorHandler(response, callback)
+  });
+  await errorHandler(response, callback);
 }
 
-async function errorHandler(response, callback){
-  if(!response.ok) {
-    const jsondata = await response.json()
-    console.log(jsondata)
-    if(jsondata['detail'] === "sameparent") {
-      alert("Du kan ikke ha samme parent")
+async function errorHandler(response, callback) {
+  if (!response.ok) {
+    const jsondata = await response.json();
+    console.log(jsondata);
+    if (jsondata["detail"] === "sameparent") {
+      alert("Du kan ikke ha samme parent");
+    } else {
+      alert("Du kan ikke ha deg selv som forelder din gjøk! \n Tulling ass");
     }
     // if(response. === "deleteparent") {
     //   alert("Du kan ikke slette en forelder")
@@ -63,24 +68,22 @@ async function errorHandler(response, callback){
     return
   }
   callback();
-
 }
-  
-
 
 async function editPerson(callback) {
   const Person = usePerson();
   const response = await fetch("https://localhost:7147/updatePerson", {
-    method: 'PUT',
+    method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(Person.Person)});
-    //const responseText = await response.text();
-    errorHandler(response, callback)
-      // .then(response => response.json())
-      // .then(data => console.log(data))
-      // .catch((e) => {console.log(e)
+    body: JSON.stringify(Person.Person),
+  });
+  //const responseText = await response.text();
+  errorHandler(response, callback);
+  // .then(response => response.json())
+  // .then(data => console.log(data))
+  // .catch((e) => {console.log(e)
 }
 
 export { getPeople, searchPerson, deleteById, createPerson, editPerson };

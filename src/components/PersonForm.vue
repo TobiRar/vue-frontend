@@ -1,7 +1,9 @@
 <template>
   <section class="form">
     <div class="form-container">
-      <h2 class="form-h2" ><slot name="editOrCreate"></slot> person</h2>
+      <h2 class="form-h2">
+        <slot name="editOrCreate"></slot> person
+      </h2>
       <div class="input-container-1">
         <div class="form-control">
           <p>Fornavn</p>
@@ -78,26 +80,28 @@ import { useRouter } from "vue-router"
 import { searchPerson } from "../RestController/Controller";
 import { useSelectedParent } from '../Store/selectedPerson';
 
-  defineProps(["parentFunction", "editOrCreate" ])
+defineProps(["parentFunction", "editOrCreate"])
 
-  const router = useRouter();
-  const pers = usePerson()
-  const person = pers.Person
+const router = useRouter();
+const pers = usePerson()
+const person = pers.Person
 
-  // const momName = MakeMomName();
-  const momName = person.momFirstName + " " + person.momLastName
-  const dadName = person.dadFirstName  + " " + person.dadLastName 
+// const momName = MakeMomName();
+let momNameWHITESPACE = person.momFirstName + " " + person.momLastName
+let dadNameWHITESPACE = person.dadFirstName + " " + person.dadLastName
+
+const momName = momNameWHITESPACE.trim()
+const dadName = dadNameWHITESPACE.trim()
 
 
+function goToParentView(parentToChoose, searchfield) {
+  const parent = useSelectedParent()
+  parent.value = parentToChoose
+  searchPerson(searchfield)
+  router.push("/select-parent")
+}
 
-   function goToParentView(parentToChoose, searchfield) {
-      const parent = useSelectedParent()
-      parent.value = parentToChoose
-      searchPerson(searchfield)
-      router.push("/select-parent")
-  }
 
-    
 
 </script>
 

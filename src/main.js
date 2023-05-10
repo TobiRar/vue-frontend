@@ -1,7 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-const beforeUnloadListener = (event) => {
+/* const beforeUnloadListener = (event) => {
   event.preventDefault();
   return (event.returnValue = "");
 };
@@ -16,7 +16,7 @@ nameInput.addEventListener("input", (event) => {
       capture: true,
     });
   }
-});
+}); */ // irriterende drit
 
 const app = createApp(App);
 app.use(router);
