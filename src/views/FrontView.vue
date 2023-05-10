@@ -3,7 +3,6 @@ import PeopleList from '../components/PeopleList.vue';
 import Header from '../components/MainHeader.vue';
 import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
 import { selectedPerson } from '../components/composable/selectedPerson';
-import { usePeopleList } from "../Store/listOfPeopleStore.js";
 import { useRouter } from 'vue-router';
 import { deleteById } from "../RestController/Controller.js"
 import VueFeather from 'vue-feather';

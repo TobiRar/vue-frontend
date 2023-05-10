@@ -1,6 +1,5 @@
 <script setup>
 import { usePeopleList } from "../Store/listOfPeopleStore.js";
-import VueFeather from 'vue-feather';
 
 const listOfPepole = usePeopleList()
 console.log(listOfPepole)
@@ -46,7 +45,6 @@ const props = defineProps(['parentFunction', 'goTo', 'parentFunction2'])
         </tr>
 
     </table>
-
 </template>
 
 <style scoped>
