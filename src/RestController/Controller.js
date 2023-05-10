@@ -39,10 +39,27 @@ async function createPerson(callback) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(Person.Person),
-  });
-  console.log(response);
-  callback();
+  })
+  await errorHandler(response, callback)
 }
+
+async function errorHandler(response, callback){
+  if(!response.ok) {
+    const jsondata = await response.json()
+    console.log(jsondata)
+    if(jsondata['detail'] === "sameparent") {
+      alert("Du kan ikke ha samme parent")
+    }
+    else {
+      alert("Du kan ikke ha deg selv som forelder din gjøk! \n Tulling ass")
+    }
+    return
+  }
+  callback();
+
+}
+  
+
 
 async function editPerson(callback) {
   const Person = usePerson();
@@ -52,12 +69,11 @@ async function editPerson(callback) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(Person.Person)});
-    const responseText = await response.text();
-    console.log(responseText);
+    //const responseText = await response.text();
+    errorHandler(response, callback)
       // .then(response => response.json())
       // .then(data => console.log(data))
       // .catch((e) => {console.log(e)
-    callback();
 }
 
 export { getPeople, searchPerson, deleteById, createPerson, editPerson };
