@@ -3,24 +3,24 @@ import Adress from "./Adress.js";
 export default class Person {
   constructor(person) {
     this.id = person.id;
-    this.firstName = person.firstName
-    this.lastName = person.lastName 
-    this.age = parseInt(person.age) 
-    this.headRadius = parseFloat(person.headRadius)
-    this.birthDay = person.birthDay
-    this.momId = parseInt(person.momId) ?? null
-    this.dadId = parseInt(person.dadId) ?? null
+    this.firstName = person.firstName;
+    this.lastName = person.lastName;
+    this.age = person.age;
+    this.headRadius = Number(person.headRadius);
+    this.birthDay = person.birthDay;
+    this.momId = person.momId;
+    this.dadId = person.dadId;
     this.dadFirstName = person.dadFirstName ?? ""
     this.dadLastName = person.dadLastName ?? ""
     this.momFirstName = person.momFirstName ?? ""
     this.momLastName = person.momLastName ?? ""
 
     this.adress = new Adress(
-      person.streetName, 
-      person.number, 
-      person.city, 
+      person.streetName,
+      person.number,
+      person.city,
       person.postNumber,
-      person.country 
+      person.country
     );
   }
 }
