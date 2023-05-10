@@ -4,14 +4,16 @@ import Header from '../components/MainHeader.vue';
 import { useFillPeopleList } from '../components/composable/fillsListWithAllPeople';
 import { selectedPerson } from '../components/composable/selectedPerson';
 import { usePeopleList } from "../Store/listOfPeopleStore.js";
-import { deleteById } from "../RestController/Controller.js"
 import { useRouter } from 'vue-router';
+import { deleteById } from "../RestController/Controller.js"
+import VueFeather from 'vue-feather';
 useFillPeopleList()
 
 const router = useRouter()
 
 function gotofunc() {
     router.push('/edit-person')
+
 }
 
 </script>
@@ -20,12 +22,12 @@ function gotofunc() {
     <PeopleList :goTo="gotofunc" :parentFunction="selectedPerson" :parentFunction2="deleteById">
         <template v-slot:selectBtn></template>
         deleteBtnHead
-        <template v-slot:selectX>Velg
+        <template v-slot:selectX><vue-feather type="edit-2" size="12px" stroke-width="3"></vue-feather>
         </template>
         <template v-slot:deleteBtnHead>
             <th>Slett</th>
         </template>
-        <template v-slot:selectY>Slett</template>
+        <template v-slot:selectY><vue-feather type="trash-2" size="12px" stroke-width="3"></vue-feather></template>
     </PeopleList>
 </template>
 <style scoped>
