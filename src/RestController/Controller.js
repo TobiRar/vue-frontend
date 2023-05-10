@@ -19,7 +19,12 @@ async function searchPerson(name) {
   let trimmedName = name.trim(); // Fjerner whitespace " " fra begynnelsen og slutten av name
   const splitName = trimmedName.split(" ");
   const lastName = splitName.splice(-1); // Forander splitName arrayet
-  const firstName = splitName.join(" ");
+  let firstName = splitName.join(" ");
+
+  if (!firstName) {
+    firstName = lastName;
+  }
+  console.log(firstName);
 
   const response = await fetch(
     `https://localhost:7147/getparents?firstName=${firstName}&lastName=${lastName}`
