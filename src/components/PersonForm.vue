@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="save-button">
-      <standard-button @click="parentFunction(function mainPage() { router.push('/') })">Lagre</standard-button>
+      <standard-button @click="parentFunction(() => { router.push('/') })">Lagre</standard-button>
     </div>
   </section>
 </template>
