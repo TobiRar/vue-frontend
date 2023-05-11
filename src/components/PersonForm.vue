@@ -79,6 +79,8 @@ import { usePerson } from "../Store/personStore.js"
 import { useRouter } from "vue-router"
 import { searchPerson } from "../RestController/Controller";
 import { useSelectedParent } from '../Store/selectedPerson';
+import { ref } from 'vue';
+
 
 defineProps(["parentFunction", "editOrCreate"])
 
@@ -91,7 +93,7 @@ let momNameWHITESPACE = person.momFirstName + " " + person.momLastName
 let dadNameWHITESPACE = person.dadFirstName + " " + person.dadLastName
 
 const momName = momNameWHITESPACE.trim()
-const dadName = dadNameWHITESPACE.trim()
+const dadName = ref(dadNameWHITESPACE.trim())
 
 
 function goToParentView(parentToChoose, searchfield) {
@@ -99,6 +101,9 @@ function goToParentView(parentToChoose, searchfield) {
   parent.value = parentToChoose
   searchPerson(searchfield)
   router.push("/select-parent")
+  if(parentToChoose == 'dad') {
+    dadName.value = "valgt forelder!"
+  }
 }
 
 
