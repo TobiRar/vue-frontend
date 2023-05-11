@@ -10,8 +10,6 @@ export function getPersonStatsById(person) {
     console.log(pers.Person.dadId);
     pers.Person.dadFirstName = person.firstName ?? "";
     pers.Person.dadLastName = person.lastName ?? "";
-    console.log(pers.Person);
-    console.log(person);
 
     return;
   }
