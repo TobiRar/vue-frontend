@@ -18,9 +18,13 @@ watch(search, () => {
         check.value = true
         console.log(check.value)
         router.push("/EasterEgg")
-    }
+       
+ }
+    
 
 })
+
+
 
 function goToAddPersonView() {
     clearPerson()

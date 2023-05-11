@@ -7,7 +7,6 @@ clearPerson()
 
 <template>
   <nav>
-    <router-link to="/">Front page</router-link>
   </nav>
   <RouterView />
 </template>

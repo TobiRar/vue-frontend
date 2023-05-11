@@ -1,6 +1,6 @@
 <template>
   <back-header></back-header>
-  <person-form :parentFunction="createPerson"><template v-slot:editOrCreate>Lage</template></person-form>
+  <person-form :parentFunction="createPerson"><template v-slot:editOrCreate>Lag</template></person-form>
 </template>
 <script setup>
 import BackHeader from "@/components/BackHeader.vue";
